@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"app/page.tsx -> react-simple-typewriter\":{\"id\":\"app/page.tsx -> react-simple-typewriter\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_react-simple-typewriter_dist_index_js.js\"]}}"

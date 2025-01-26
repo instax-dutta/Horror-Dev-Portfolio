@@ -1,0 +1,494 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 72.2% 50.6%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 72.2% 50.6%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.text-flicker {
+  animation: flicker 5s infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.spooky-shadow {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.blood-drip {
+  position: relative;
+  overflow: visible;
+}
+
+.blood-drip::before,
+.blood-drip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  background: #8b0000;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.blood-drip::before {
+  top: 100%;
+  height: 6px;
+  animation: drip1 4s infinite;
+}
+
+.blood-drip::after {
+  top: calc(100% + 6px);
+  height: 10px;
+  animation: drip2 4s 0.5s infinite;
+}
+
+@keyframes drip1 {
+  0% {
+    height: 0;
+    top: 100%;
+    opacity: 0;
+  }
+  30% {
+    height: 6px;
+    top: 100%;
+    opacity: 1;
+  }
+  60%,
+  100% {
+    height: 6px;
+    top: calc(100% + 15px);
+    opacity: 0;
+  }
+}
+
+@keyframes drip2 {
+  0% {
+    height: 0;
+    top: calc(100% + 6px);
+    opacity: 0;
+  }
+  30% {
+    height: 10px;
+    top: calc(100% + 6px);
+    opacity: 1;
+  }
+  60%,
+  100% {
+    height: 10px;
+    top: calc(100% + 30px);
+    opacity: 0;
+  }
+}
+
+.blood-splash {
+  position: relative;
+}
+
+.blood-splash::before,
+.blood-splash::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  width: 4px;
+  height: 4px;
+  background: #8b0000;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.blood-splash::before {
+  left: -5px;
+  animation: splash1 4s 1.5s infinite;
+}
+
+.blood-splash::after {
+  right: -5px;
+  animation: splash2 4s 2s infinite;
+}
+
+@keyframes splash1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-2px, 1px) scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+@keyframes splash2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(2px, 1px) scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+.skull-bg {
+  position: relative;
+}
+
+.skull-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/skull.png");
+  background-size: 50px;
+  background-repeat: repeat;
+  opacity: 0.1;
+  animation: skullFloat 10s ease-in-out infinite;
+}
+
+@keyframes skullFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  }
+}
+
+.glow-text {
+  animation: glowPulse 3s infinite;
+}
+
+@media (max-width: 640px) {
+  .skull-bg::before {
+    background-size: 30px;
+  }
+}
+
+@keyframes creepyRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.creepy-rotate {
+  animation: creepyRotate 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.fade-in-out {
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes intenseGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 7px #ff0000, 0 0 10px #ff0000, 0 0 21px #ff0000, 0 0 42px #ff0000, 0 0 82px #ff0000, 0 0 92px
+      #ff0000, 0 0 102px #ff0000, 0 0 151px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 4px #ff0000, 0 0 7px #ff0000, 0 0 18px #ff0000, 0 0 38px #ff0000, 0 0 73px #ff0000, 0 0 80px
+      #ff0000, 0 0 94px #ff0000, 0 0 140px #ff0000;
+  }
+}
+
+.intense-glow {
+  animation: intenseGlow 3s ease-in-out infinite alternate;
+}
+
+.glitch {
+  position: relative;
+  animation: glitch 500ms infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(44px, 9999px, 56px, 0);
+  }
+  5% {
+    clip: rect(99px, 9999px, 71px, 0);
+  }
+  10% {
+    clip: rect(31px, 9999px, 100px, 0);
+  }
+  15% {
+    clip: rect(95px, 9999px, 7px, 0);
+  }
+  20% {
+    clip: rect(67px, 9999px, 24px, 0);
+  }
+  25% {
+    clip: rect(13px, 9999px, 85px, 0);
+  }
+  30% {
+    clip: rect(38px, 9999px, 33px, 0);
+  }
+  35% {
+    clip: rect(72px, 9999px, 98px, 0);
+  }
+  40% {
+    clip: rect(50px, 9999px, 62px, 0);
+  }
+  45% {
+    clip: rect(89px, 9999px, 19px, 0);
+  }
+  50% {
+    clip: rect(4px, 9999px, 41px, 0);
+  }
+  55% {
+    clip: rect(27px, 9999px, 76px, 0);
+  }
+  60% {
+    clip: rect(81px, 9999px, 10px, 0);
+  }
+  65% {
+    clip: rect(57px, 9999px, 93px, 0);
+  }
+  70% {
+    clip: rect(20px, 9999px, 54px, 0);
+  }
+  75% {
+    clip: rect(63px, 9999px, 87px, 0);
+  }
+  80% {
+    clip: rect(46px, 9999px, 15px, 0);
+  }
+  85% {
+    clip: rect(35px, 9999px, 79px, 0);
+  }
+  90% {
+    clip: rect(92px, 9999px, 28px, 0);
+  }
+  95% {
+    clip: rect(8px, 9999px, 69px, 0);
+  }
+  100% {
+    clip: rect(52px, 9999px, 40px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 91px, 0);
+  }
+  5% {
+    clip: rect(17px, 9999px, 36px, 0);
+  }
+  10% {
+    clip: rect(84px, 9999px, 52px, 0);
+  }
+  15% {
+    clip: rect(73px, 9999px, 5px, 0);
+  }
+  20% {
+    clip: rect(29px, 9999px, 98px, 0);
+  }
+  25% {
+    clip: rect(61px, 9999px, 23px, 0);
+  }
+  30% {
+    clip: rect(45px, 9999px, 77px, 0);
+  }
+  35% {
+    clip: rect(88px, 9999px, 10px, 0);
+  }
+  40% {
+    clip: rect(2px, 9999px, 59px, 0);
+  }
+  45% {
+    clip: rect(96px, 9999px, 34px, 0);
+  }
+  50% {
+    clip: rect(14px, 9999px, 82px, 0);
+  }
+  55% {
+    clip: rect(70px, 9999px, 47px, 0);
+  }
+  60% {
+    clip: rect(39px, 9999px, 95px, 0);
+  }
+  65% {
+    clip: rect(6px, 9999px, 68px, 0);
+  }
+  70% {
+    clip: rect(53px, 9999px, 21px, 0);
+  }
+  75% {
+    clip: rect(80px, 9999px, 43px, 0);
+  }
+  80% {
+    clip: rect(25px, 9999px, 76px, 0);
+  }
+  85% {
+    clip: rect(11px, 9999px, 90px, 0);
+  }
+  90% {
+    clip: rect(58px, 9999px, 32px, 0);
+  }
+  95% {
+    clip: rect(37px, 9999px, 83px, 0);
+  }
+  100% {
+    clip: rect(19px, 9999px, 49px, 0);
+  }
+}
+
