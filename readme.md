@@ -1,5 +1,7 @@
 # 🎃 Spooky Developer Portfolio
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Portfolio-brightgreen?style=for-the-badge)](https://https://horror-dev-portfolio.vercel.app)  
+
 Welcome to the Spooky Developer Portfolio template! This project is a horror-themed, responsive portfolio website built with **Next.js**, **React**, and **Tailwind CSS**. It's perfect for developers who want to showcase their skills and projects with a unique, eerie twist. Whether you're a frontend wizard, a backend sorcerer, or a full-stack necromancer, this portfolio will help you stand out in the dark corners of the web.
 
 ---
@@ -183,4 +185,4 @@ If you have any questions or need help, feel free to reach out:
 
 ---
 
-Happy coding, and may your portfolio haunt the web! 🎃👻
+Happy coding, and may your portfolio haunt the web! 🎃👻  
