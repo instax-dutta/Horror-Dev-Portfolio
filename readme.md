@@ -173,7 +173,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 If you have any questions or need help, feel free to reach out:
 
 - **GitHub**: [instax-dutta](https://github.com/instax-dutta)
-- **Email**: [sdad@duck.com]
+- **Email**: [sdad@duck.com](mailto:sdad@duck.com)
 - **Web**: [sdad.pro](https://sdad.pro)
 
 ---
