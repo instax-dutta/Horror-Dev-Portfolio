@@ -20,8 +20,7 @@ Welcome to the Spooky Developer Portfolio template! This project is a horror-the
 
 ## 🧟‍♂️ Preview
 
-![Spooky Developer Portfolio Preview](https://via.placeholder.com/800x400.png?text=Add+a+screenshot+or+GIF+here)  
-*Replace this placeholder with a screenshot or GIF of your portfolio.*
+![Spooky Developer Portfolio Preview](https://postimg.cc/HJyKH8WQ)  
 
 ---
 
